@@ -7,6 +7,8 @@ from app.api.blog.views import BlogViewSet
 from app.api.events.views import EventViewSet
 
 from app.api.classrooms.views import ClassroomViewSet
+from app.api.posts.views import PostViewSet
+
 urlpatterns = [
     path('blog/create', BlogViewSet.as_view({'post': 'create_blog'}), name='create_blog'),
     path('blog/', BlogViewSet.as_view({'get': 'get_blogs'}), name='get_blogs'),
@@ -19,4 +21,8 @@ urlpatterns = [
     path('classrooms/create', ClassroomViewSet.as_view({'post': 'create_class'}), name='create_classroom'),
     path('classrooms/', ClassroomViewSet.as_view({'get': 'get_classes'}), name='get_classrooms'),
     path('classrooms/<int:pk>/', ClassroomViewSet.as_view({'get': 'get_class'}), name='get_classroom'),
+
+    path('posts/create', PostViewSet.as_view({'post': 'create_post'}), name='create_post'),
+    path('posts/', PostViewSet.as_view({'get': 'get_posts'}), name='get_posts'),
+    path('posts/<int:pk>/', PostViewSet.as_view({'get': 'get_post'}), name='get_post'),
 ]
